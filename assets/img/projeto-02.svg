@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img">
+  <title>Espaço reservado para a captura do Projeto 2</title>
+  <rect width="800" height="600" fill="#F4F1EA"/>
+  <rect x="120" y="150" width="560" height="300" rx="10" fill="#FFFFFF" stroke="#D3CCBD"/>
+  <polyline points="160,400 260,330 350,360 450,250 550,290 640,200" fill="none"
+            stroke="#A63D2A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="160" y1="430" x2="640" y2="430" stroke="#E5E0D5" stroke-width="2"/>
+  <line x1="160" y1="180" x2="160" y2="430" stroke="#E5E0D5" stroke-width="2"/>
+  <text x="400" y="524" font-family="Inter, Arial, sans-serif" font-size="18" fill="#8B857A"
+        text-anchor="middle" letter-spacing="2.5">TELA OU GIF DO PROJETO</text>
+  <rect x="1" y="1" width="798" height="598" fill="none" stroke="#E5E0D5" stroke-width="2"/>
+
+</svg>

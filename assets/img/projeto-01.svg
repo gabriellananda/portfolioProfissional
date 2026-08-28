@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img">
+  <title>Espaço reservado para a captura do Projeto 1</title>
+  <rect width="800" height="600" fill="#F4F1EA"/>
+  <rect x="120" y="150" width="560" height="60" rx="8" fill="#FFFFFF" stroke="#D3CCBD"/>
+  <circle cx="152" cy="180" r="8" fill="#A63D2A" opacity=".5"/>
+  <rect x="180" y="172" width="200" height="16" rx="8" fill="#E5E0D5"/>
+  <rect x="120" y="234" width="270" height="216" rx="8" fill="#FFFFFF" stroke="#D3CCBD"/>
+  <rect x="410" y="234" width="270" height="100" rx="8" fill="#FFFFFF" stroke="#D3CCBD"/>
+  <rect x="410" y="350" width="270" height="100" rx="8" fill="#FFFFFF" stroke="#D3CCBD"/>
+  <text x="400" y="524" font-family="Inter, Arial, sans-serif" font-size="18" fill="#8B857A"
+        text-anchor="middle" letter-spacing="2.5">TELA OU GIF DO PROJETO</text>
+  <rect x="1" y="1" width="798" height="598" fill="none" stroke="#E5E0D5" stroke-width="2"/>
+
+</svg>
