@@ -16,7 +16,7 @@
 
 ## Acesso ao projeto
 
-- **Em breve.**
+- **(https://gabriellafernanda.vercel.app/)**
 
 ## Sobre o projeto
 
