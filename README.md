@@ -36,7 +36,7 @@ O portfólio foi estruturado em quatro páginas principais:
 - Menu de navegação adaptado para dispositivos móveis.
 - Alternância de idioma entre português e inglês.
 - Armazenamento da preferência de idioma.
-- Filtragem de projetos pelas categorias **Todos**, **Web**, **Dados**, **Mobile** e **Acadêmico**.
+- Filtragem de projetos pelas categorias **Todos** e **Acadêmico**.
 - Validação dos campos de nome, e-mail e mensagem no formulário de contato.
 - Abertura do aplicativo de e-mail do usuário por meio de um link `mailto:`.
 - Atualização automática do ano exibido no rodapé.
