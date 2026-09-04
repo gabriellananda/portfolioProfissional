@@ -4,9 +4,6 @@
 ## Autores do projeto Portfólio Profissional:
 
 **Gabriella Fernanda Silva Pinto**<br>
-**Igor Vidal Meneghini**<br>
-**Izabella Romano Bizerra Seabra**<br>
-**Natália dos Reis Santos**
 
 **Instituição:** Pontifícia Universidade Católica de Minas Gerais — PUC Minas  
 **Curso:** Engenharia de Software  
