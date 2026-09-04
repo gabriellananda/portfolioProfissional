@@ -133,10 +133,7 @@
     apply('todos');
   }
 
-  /* ========================= 4. Validação do formulário de contato
-     No Lab01S01 o formulário apenas valida os campos no navegador.
-     O envio real por e-mail entra no Lab01S02.
-     ------------------------------------------------------------ */
+  /* ========================= 4. Validação e envio do formulário */
   function initForm() {
     var form = document.querySelector('[data-contact-form]');
     if (!form) return;
@@ -179,7 +176,7 @@
       });
     });
 
-    form.addEventListener('submit', function (ev) {
+    form.addEventListener('submit', async function (ev) {
       ev.preventDefault();
 
       var ok = true;
@@ -196,33 +193,61 @@
       if (!ok) {
         if (status) {
           status.hidden = false;
-          status.classList.remove('form-status--ok');
+          status.classList.remove('form-status--ok', 'form-status--error');
           status.textContent = 'Revise os campos destacados antes de enviar.';
         }
         if (primeiroInvalido) primeiroInvalido.focus();
         return;
       }
 
-      // Protótipo (Lab01S01): monta um rascunho de e-mail no cliente.
-      // TODO Lab01S02: substituir por envio real (EmailJS, Formspree ou backend próprio).
-      var dados = {
-        nome: form.elements.nome.value.trim(),
-        email: form.elements.email.value.trim(),
-        mensagem: form.elements.mensagem.value.trim()
-      };
-      var destino = form.getAttribute('data-mailto') || '';
-      var href = 'mailto:' + destino +
-        '?subject=' + encodeURIComponent('Contato pelo portfólio — ' + dados.nome) +
-        '&body=' + encodeURIComponent(dados.mensagem + '\n\n—\n' + dados.nome + ' <' + dados.email + '>');
+      var button = form.querySelector('button[type="submit"]');
+      var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+      var originalText = button.textContent;
 
+      button.disabled = true;
+      button.textContent = lang === 'en' ? 'Sending…' : 'Enviando…';
       if (status) {
         status.hidden = false;
-        status.classList.add('form-status--ok');
-        status.textContent = 'Tudo certo, ' + dados.nome.split(' ')[0] +
-          '! Abrimos um rascunho no seu app de e-mail. O envio automático entra no Lab01S02.';
+        status.classList.remove('form-status--ok', 'form-status--error');
+        status.textContent = lang === 'en'
+          ? 'Sending your message…'
+          : 'Enviando sua mensagem…';
       }
-      window.location.href = href;
-      form.reset();
+
+      try {
+        var response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        var result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'Falha no envio');
+        }
+
+        if (status) {
+          status.classList.add('form-status--ok');
+          status.textContent = lang === 'en'
+            ? 'Message sent successfully. Thank you for getting in touch!'
+            : 'Mensagem enviada com sucesso. Obrigada pelo contato!';
+        }
+        form.reset();
+        campos.forEach(function (input) { setError(input, ''); });
+      } catch (error) {
+        if (status) {
+          status.classList.add('form-status--error');
+          status.textContent = lang === 'en'
+            ? 'The message could not be sent. Please try again or use the e-mail link.'
+            : 'Não foi possível enviar a mensagem. Tente novamente ou utilize o link de e-mail.';
+        }
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
     });
   }
 

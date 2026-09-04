@@ -509,6 +509,8 @@ p:last-child { margin-bottom: 0; }
 
 .form-note { font-size: .82rem; color: var(--ink-3); margin: 0; }
 .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+.form-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; }
+.form-actions .btn:disabled { cursor: wait; opacity: .7; }
 
 .form-status {
   margin-top: 1.25rem;
@@ -520,6 +522,7 @@ p:last-child { margin-bottom: 0; }
 }
 .form-status[hidden] { display: none; }
 .form-status--ok { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent-ink); }
+.form-status--error { background: #fff1ef; border-color: #d99a91; color: #7e2f25; }
 
 /* ------------------------------------- 8. Seções específicas */
 .hero { background: var(--paper-2); border-bottom: 1px solid var(--line); padding-block: clamp(3rem, 8vw, 6rem); }
